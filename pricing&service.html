@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparent Pricing | Digital Agency Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ============================================================
+       PRICING PAGE STYLES
+       ============================================================ */
+    .pricing-hero {
+      padding: calc(var(--nav-height) + 80px) 0 60px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(34, 211, 238, 0.05) 100%);
+    }
+
+    .pricing-hero-title {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pricing-hero-tagline {
+      font-size: 1.25rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .pricing-hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
+
+    .pricing-cta-header {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    /* ============================================================
+       SERVICE SECTION
+       ============================================================ */
+    .service-section {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      scroll-margin-top: var(--nav-height);
+    }
+
+    .service-section:nth-child(even) {
+      background: rgba(99, 102, 241, 0.02);
+    }
+
+    .service-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .service-number {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    .service-title {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .service-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       PRICING TIER CARDS
+       ============================================================ */
+    .pricing-tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .tier-card {
+      background: rgba(19, 28, 46, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .tier-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .tier-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 20px 60px rgba(34, 211, 238, 0.12), inset 0 1px 0 rgba(99, 102, 241, 0.1);
+      transform: translateY(-8px);
+    }
+
+    .tier-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .tier-card.featured {
+      border-color: var(--color-accent);
+      box-shadow: 0 20px 60px rgba(34, 211, 238, 0.15), inset 0 1px 0 rgba(99, 102, 241, 0.15);
+      transform: scale(1.05);
+      background: rgba(34, 211, 238, 0.08);
+    }
+
+    .tier-card.featured .tier-badge {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+      color: white;
+    }
+
+    .tier-badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--color-primary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      width: fit-content;
+    }
+
+    .tier-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .tier-tagline {
+      font-size: 0.9rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .tier-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+      margin: 20px 0;
+    }
+
+    .tier-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .tier-amount {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--color-accent);
+    }
+
+    .tier-currency {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+    }
+
+    .tier-billing {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .tier-features li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+    }
+
+    .tier-features li:last-child {
+      border-bottom: none;
+    }
+
+    .tier-features li::before {
+      content: '→';
+      color: var(--color-accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .tier-features li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .tier-cta {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .tier-cta.primary {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: white;
+    }
+
+    .tier-cta.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .tier-cta.secondary {
+      background: transparent;
+      border: 1.5px solid var(--border-bright);
+      color: var(--text-primary);
+    }
+
+    .tier-cta.secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+    }
+
+    /* ============================================================
+       COMPARISON TABLE (Desktop)
+       ============================================================ */
+    .comparison-section {
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .comparison-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+    }
+
+    .comparison-table {
+      overflow-x: auto;
+      margin-bottom: 60px;
+    }
+
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(19, 28, 46, 0.4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .comparison-table thead {
+      background: rgba(99, 102, 241, 0.08);
+      border-bottom: 2px solid var(--border-bright);
+    }
+
+    .comparison-table th {
+      padding: 20px 16px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .comparison-table th:first-child {
+      min-width: 250px;
+    }
+
+    .comparison-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table td.feature-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      background: rgba(99, 102, 241, 0.03);
+    }
+
+    .comparison-table td.check {
+      text-align: center;
+      color: var(--color-success);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .comparison-table td.x {
+      text-align: center;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq-section {
+      margin-top: 100px;
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 32px;
+    }
+
+    .faq-item {
+      background: rgba(19, 28, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 12px 40px rgba(34, 211, 238, 0.1);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .faq-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================================
+       CTA SECTION
+       ============================================================ */
+    .final-cta {
+      margin: 100px 0;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(34, 211, 238, 0.08) 100%);
+      border: 1.5px solid rgba(34, 211, 238, 0.2);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .final-cta-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .final-cta-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .tier-card.featured {
+        transform: scale(1.02);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pricing-tiers {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .tier-card.featured {
+        transform: scale(1);
+      }
+
+      .pricing-hero {
+        padding: calc(var(--nav-height) + 60px) 0 40px;
+      }
+
+      .service-section {
+        padding: 60px 0;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta {
+        padding: 40px 24px;
+        margin: 80px 0;
+      }
+
+      .comparison-table table {
+        font-size: 0.85rem;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pricing-hero-title {
+        font-size: 1.6rem;
+      }
+
+      .service-title {
+        font-size: 1.4rem;
+      }
+
+      .tier-amount {
+        font-size: 2.2rem;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table th:first-child {
+        min-width: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Blockchain Background Canvas -->
+  <canvas id="blockchainCanvas" class="blockchain-bg" aria-hidden="true"></canvas>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <span class="logo-name"><img src="./pic/logo.png"></span><span class="logo-bracket"></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#skills" class="nav-link">Skills</a>
+        <a href="index.html#projects" class="nav-link">Stack</a>
+        <a href="pricing&service.html" class="nav-link active">Pricing&Service</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Hire Me</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======================== PRICING HERO ======================== -->
+  <section class="pricing-hero">
+    <div class="container">
+      <div class="pricing-tagline">TRANSPARENT & SCALABLE PRICING</div>
+      <h1 class="pricing-hero-title">Solutions Built for Growth</h1>
+      <p class="pricing-hero-desc">
+        Choose the perfect service package for your project. From WordPress to custom AI integrations,
+        we deliver measurable results at every scale. All plans include dedicated support and transparent timelines.
+        <strong>Rates are automatically calculated and displayed in your local currency based on your location.</strong>
+      </p>
+      <div class="pricing-cta-header">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="index.html#contact" class="btn btn-outline">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICE 1: WORDPRESS ======================== -->
+  <section class="service-section" id="services">
+    <div class="container">
+      <div class="service-header">
+        <h2 class="service-title">WordPress Services</h2>
+        <p class="service-subtitle">Fast, beautiful, and fully functional websites powered by the world's leading CMS.
+        </p>
+      </div>
+
+      <div class="pricing-tiers">
+        <!-- Starter -->
+        <div class="tier-card">
+          <span class="tier-badge">Starter</span>
+          <h3 class="tier-name">Basic Business Site</h3>
+          <p class="tier-tagline">"Ideal for local businesses needing a fast, clean informational site."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="150">150</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>5-page responsive WordPress site</li>
+            <li>Professional theme customization</li>
+            <li>Mobile & desktop optimization</li>
+            <li>Basic SEO setup & optimization</li>
+            <li>Contact form & analytics integration</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="WordPress" plan="Starter">Get Started</button>
+        </div>
+
+        <!-- Premium (Featured) -->
+        <div class="tier-card featured">
+          <span class="tier-badge">Premium</span>
+          <h3 class="tier-name">E-Commerce & Advanced CMS</h3>
+          <p class="tier-tagline">"For growing brands needing dynamic content and seamless transactions."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="500">500</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>15-page WordPress site with advanced customization</li>
+            <li>Custom plugin development & integration</li>
+            <li>E-commerce setup (WooCommerce) with payment gateway</li>
+            <li>Advanced SEO optimization & schema markup</li>
+            <li>Blog setup with editorial calendar</li>
+            <li>DNS routing configuration & management</li>
+            <li>Google Search Console setup & XML sitemap</li>
+            <li>GDPR compliance implementation</li>
+            <li>GA4 integration with custom events</li>
+            <li>Loom video documentation & walkthrough</li>
+          </ul>
+          <button class="tier-cta primary booking" service="WordPress" plan="Premium">Book Contract</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="tier-card">
+          <span class="tier-badge">Enterprise</span>
+          <h3 class="tier-name">Custom Scale Solutions</h3>
+          <p class="tier-tagline">"High-traffic corporate sites with custom architectures and 24/7 support."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-amount" style="font-size: 1.8rem;">Custom Quote</span>
+          </div>
+          <div class="tier-billing">+ Ongoing support available</div>
+          <ul class="tier-features">
+            <li><strong>Strategic Alignment Phase:</strong> 1-on-1 architecture planning, infrastructure mapping, and
+              technical consulting before development starts</li>
+            <li>Fully custom theme development</li>
+            <li>Headless WordPress & API setup</li>
+            <li>Advanced caching & performance optimization</li>
+            <li>24/7 monitoring & maintenance</li>
+            <li>Advanced security & compliance</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="WordPress" plan="Enterprise">Discuss Custom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICE 2: FULL-CODING ======================== -->
+  <section class="service-section">
+    <div class="container">
+      <div class="service-header">
+        <h2 class="service-title">Full-Coding Services</h2>
+        <p class="service-subtitle">Bespoke web applications built with modern frameworks for maximum performance and
+          scalability.</p>
+      </div>
+
+      <div class="pricing-tiers">
+        <!-- Starter -->
+        <div class="tier-card">
+          <span class="tier-badge">Starter</span>
+          <h3 class="tier-name">MVP Framework</h3>
+          <p class="tier-tagline">"Quick build of a single-page app or functional SaaS prototype."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="4500">4,500</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>React / Next.js single-page application</li>
+            <li>Basic authentication system</li>
+            <li>Simple API integration</li>
+            <li>Responsive UI/UX design</li>
+            <li>Core functionality & feature set</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="Full-Coding" plan="Starter">Get Started</button>
+        </div>
+
+        <!-- Premium (Featured) -->
+        <div class="tier-card featured">
+          <span class="tier-badge">Premium</span>
+          <h3 class="tier-name">Full-Stack Application</h3>
+          <p class="tier-tagline">"Comprehensive multi-page web app with secure auth and database integration."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="8500">8,500</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>React / Next.js full-stack application</li>
+            <li>Secure user authentication & roles</li>
+            <li>PostgreSQL database architecture</li>
+            <li>RESTful API development</li>
+            <li>Advanced UI with animations & states</li>
+            <li>Multi-environment DNS configuration</li>
+            <li>Google Search Console XML sitemap setup</li>
+            <li>GDPR-compliant tokenization & data handling</li>
+            <li>GA4 server-side event tracking</li>
+            <li>Comprehensive video walkthrough documentation</li>
+          </ul>
+          <button class="tier-cta primary booking" service="Full-Coding" plan="Premium">Book Contract</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="tier-card">
+          <span class="tier-badge">Enterprise</span>
+          <h3 class="tier-name">Scalable Platform</h3>
+          <p class="tier-tagline">"Microservices architecture with custom dashboards and bank-grade security."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-amount" style="font-size: 1.8rem;">Custom Quote</span>
+          </div>
+          <div class="tier-billing">+ Maintenance contracts available</div>
+          <ul class="tier-features">
+            <li><strong>Bespoke Strategy & Discovery Block:</strong> Direct collaborative planning, database
+              whiteboarding, and custom systems scaling roadmaps</li>
+            <li>Microservices architecture & deployment</li>
+            <li>High-availability & load balancing</li>
+            <li>Custom analytics & admin dashboards</li>
+            <li>Bank-grade encryption & security</li>
+            <li>Real-time data synchronization</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="Full-Coding" plan="Enterprise">Discuss Custom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICE 3: BOTS & AI ======================== -->
+  <section class="service-section">
+    <div class="container">
+      <div class="service-header">
+        <h2 class="service-title">Bots, Automation & AI</h2>
+        <p class="service-subtitle">Intelligent automation that saves time, cuts costs, and scales your operations
+          seamlessly.</p>
+      </div>
+
+      <div class="pricing-tiers">
+        <!-- Starter -->
+        <div class="tier-card">
+          <span class="tier-badge">Starter</span>
+          <h3 class="tier-name">Basic Workflows</h3>
+          <p class="tier-tagline">"Simple task automations and single-trigger integration workflows."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="70">70</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>Single-trigger Zapier / Make workflow automations</li>
+            <li>Instant lead form-to-email or contact-to-Slack routing</li>
+            <li>Automatic email alerts & basic notification scripts</li>
+            <li>Ideal for eliminating immediate, repetitive manual data entry tasks</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="Bots-&-AI" plan="Starter">Get Started</button>
+        </div>
+
+        <!-- Premium (Featured) -->
+        <div class="tier-card featured">
+          <span class="tier-badge">Premium</span>
+          <h3 class="tier-name">Custom AI Integrations</h3>
+          <p class="tier-tagline">"Advanced LLM integrations and tailored web scrapers for productivity."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="3500">3,500</span>
+          </div>
+          <div class="tier-billing">One-time project fee</div>
+          <ul class="tier-features">
+            <li>OpenAI / LLM chatbot configurations with contextual memory</li>
+            <li>Custom Python web scrapers & automated data transformation pipelines</li>
+            <li>Advanced business optimization flows & multi-app CRM integrations</li>
+            <li>Real-time infrastructure monitoring, cloud execution logging & emergency alerts</li>
+            <li><small style="color: var(--text-muted); display: block; margin-top: 8px;">*Note: External AI API usage
+                and cloud consumption costs are billed directly to the client.</small></li>
+          </ul>
+          <button class="tier-cta primary booking" service="Bots-&-AI" plan="Premium">Book Contract</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="tier-card">
+          <span class="tier-badge">Enterprise</span>
+          <h3 class="tier-name">Autonomous Systems</h3>
+          <p class="tier-tagline">"Custom ML models and end-to-end enterprise workflow automation."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-amount" style="font-size: 1.8rem;">Custom Quote</span>
+          </div>
+          <div class="tier-billing">+ Ongoing training available</div>
+          <ul class="tier-features">
+            <li>Custom trained machine learning models</li>
+            <li>End-to-end workflow automation</li>
+            <li>Proprietary data pipeline processing</li>
+            <li>Advanced analytics & insights</li>
+            <li>Continuous learning & optimization</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="Bots-&-AI" plan="Enterprise">Discuss Custom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICE 4: DEVOPS ======================== -->
+  <section class="service-section">
+    <div class="container">
+      <div class="service-header">
+        <h2 class="service-title">DevOps Services</h2>
+        <p class="service-subtitle">Enterprise-grade infrastructure, deployment pipelines, and cloud management for
+          reliable, scalable systems.</p>
+      </div>
+
+      <div class="pricing-tiers">
+        <!-- On-Demand Support (New) -->
+        <div class="tier-card">
+          <span class="tier-badge">Flexible</span>
+          <h3 class="tier-name">On-Demand Support</h3>
+          <p class="tier-tagline">"Quick bug fixes, configuration adjustments, and isolated technical tasks."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-amount" style="font-size: 2rem;">$20 - $600</span>
+          </div>
+          <div class="tier-billing">Per-Task Billing</div>
+          <ul class="tier-features">
+            <li>Micro-bug troubleshooting & server error remediation</li>
+            <li>Rapid third-party webhook connection configurations</li>
+            <li>Isolated SSL certificate updates & basic domain routing fixes</li>
+            <li>Fully discussed and custom-scoped per individual request</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="DevOps" plan="Flexible">Get Started</button>
+        </div>
+
+        <!-- Cloud Foundation (Updated Starter) -->
+        <div class="tier-card">
+          <span class="tier-badge">Starter</span>
+          <h3 class="tier-name">Cloud Foundation</h3>
+          <p class="tier-tagline">"Continuous cloud environment management, patching, and routine server care."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="350">350</span>
+          </div>
+          <div class="tier-billing">Per month contract</div>
+          <ul class="tier-features">
+            <li>Cloud VPS monitoring & instance upkeep (AWS EC2 / GCP Compute)</li>
+            <li>Continuous operating system hardening & active firewall updates</li>
+            <li>Daily automated database snapshots & secure storage bucket backup reviews</li>
+            <li>24/7 basic server health checks & core metrics overview</li>
+          </ul>
+          <button class="tier-cta primary booking" service="DevOps" plan="Starter">Book Contract</button>
+        </div>
+
+        <!-- CI/CD & Observability (Updated Premium - Featured) -->
+        <div class="tier-card featured">
+          <span class="tier-badge">Premium</span>
+          <h3 class="tier-name">CI/CD & Observability</h3>
+          <p class="tier-tagline">"Automated deployment pipelines, container management, and system observability."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-currency">$</span>
+            <span class="tier-amount" data-base-price="950">950</span>
+          </div>
+          <div class="tier-billing">Per month contract</div>
+          <ul class="tier-features">
+            <li>Continuous optimization of automated GitHub Actions / GitLab pipelines</li>
+            <li>Managed Docker application container infrastructures & private registries</li>
+            <li>Distributed system observability, centralized tracking logs & immediate alert rules</li>
+            <li>Horizontal resource scaling maintenance & auto-scaling rule auditing</li>
+            <li>Weekly deep-dive environment dependency security patches & health checkups</li>
+          </ul>
+          <button class="tier-cta primary booking" service="DevOps" plan="Premium">Book Contract</button>
+        </div>
+
+        <!-- Enterprise Architecture (Updated Enterprise) -->
+        <div class="tier-card">
+          <span class="tier-badge">Enterprise</span>
+          <h3 class="tier-name">Enterprise Architecture</h3>
+          <p class="tier-tagline">"Multi-cloud strategy with Kubernetes and rigorous compliance auditing."</p>
+          <div class="tier-divider"></div>
+          <div class="tier-price">
+            <span class="tier-amount" style="font-size: 1.8rem;">Custom Monthly Quote</span>
+          </div>
+          <div class="tier-billing">Premium SLA support</div>
+          <ul class="tier-features">
+            <li>Multi-cloud strategy (AWS/GCP/Azure)</li>
+            <li>Kubernetes cluster management & orchestration</li>
+            <li>Automated failovers & redundancy protocols</li>
+            <li>Security & compliance auditing with regulatory framework alignment</li>
+            <li>24/7 dedicated DevOps engineer support & strategic infrastructure planning</li>
+          </ul>
+          <button class="tier-cta secondary booking" service="DevOps" plan="Enterprise">Discuss Custom</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== COMPARISON TABLE ======================== -->
+  <section class="comparison-section">
+    <div class="container">
+      <h2 class="comparison-title">Feature Comparison</h2>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Starter</th>
+              <th>Premium</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Custom Development</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Responsive Design</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Performance Optimization</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Advanced Security</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Real-Time Features</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">24/7 Support</td>
+              <td class="x">—</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Dedicated Account Manager</td>
+              <td class="x">—</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Custom SLA</td>
+              <td class="x">—</td>
+              <td class="x">—</td>
+              <td class="check">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FAQ SECTION ======================== -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do project timelines work?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Timelines depend on project scope and complexity. Starter projects typically take 2-4
+            weeks, Premium projects 4-8 weeks, and Enterprise solutions 8-16+ weeks. We provide a detailed timeline
+            after an initial consultation.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you offer revisions and support?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Yes! All projects include unlimited revisions during development. Post-launch support
+            varies by plan: Starter includes 30 days, Premium includes 90 days, and Enterprise includes ongoing 24/7
+            support.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I upgrade or combine service plans?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Absolutely. Many clients combine services (e.g., WordPress + DevOps). We offer package
+            discounts and can create custom bundled proposals based on your specific needs.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What payment terms are available?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We accept upfront payment, 50/50 splits (upfront + completion), or monthly installments
+            for large projects. Custom payment plans available for Enterprise clients.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you provide hosting and maintenance?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We can recommend and set up hosting partners, or you can use your own. Maintenance
+            packages are available separately (included with Enterprise plans) starting at $300/month.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What's your refund or satisfaction policy?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">For our Starter plans, our satisfaction policy guarantees that the delivered solution
+            strictly matches the specific scope, data, and requirements agreed upon before the project launched. Because
+            these are rapid, high-efficiency rollouts, changes outside the initial agreement are not covered. For all
+            contract-based tiers, once a contract period concludes, any new feature additions, architectural expansions,
+            or modifications will be scoped separately and billed as a project extra depending on complexity.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Why are some service tracks (like WordPress) so much cheaper than others?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Different platforms require completely different skill sets, execution times, and
+            architectures. WordPress utilizes pre-built ecosystems and visual customizers, which allows us to deliver
+            high-quality sites rapidly and affordably. Full-Coding, AI Automations, and DevOps require bespoke software
+            engineering, manual database architecture, custom API piping, and infrastructure management, which commands
+            a premium engineering rate.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can we hire you to integrate directly into our internal engineering or product team?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Yes! For scaling startups and enterprise teams, I offer fractional and dedicated
+            contract arrangements. I can integrate seamlessly into your existing Slack, Jira, and GitHub workflows to
+            work directly alongside your internal developers on complex feature rollouts or infrastructure overhauls.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can you join or consult on my Blockchain / Web3 project?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Absolutely. I can assist with frontend Web3 integrations, decentralized application
+            (dApp) user interfaces, wallet connection components (like RainbowKit or Web3Modal), and connecting your
+            custom web applications seamlessly to smart contract APIs.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are project prices negotiable?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Our tier prices are fixed to match the precise market value, overhead, and engineering
+            hours required to execute them safely. However, we can always discuss adjusting the scope of a
+            project—removing or adding specific deliverables—to build a custom roadmap that fits closer to your specific
+            allocation budget.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I bring my own pre-purchased theme or UI template?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Yes. If you have already purchased a specific premium WordPress theme or a frontend UI
+            template design, we can use that as our development baseline. We will handle the heavy lifting of cleaning
+            up the code, optimizing performance, setting up the layout architecture, and making it production-ready.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the 'On-Demand Support' billing work for DevOps?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">For standalone infrastructure tasks, we jump in, discuss the technical issue, and give
+            you a clear quote between $20 and $600 depending on the complexity. Once approved, we fix it immediately.
+            There are no ongoing commitments or hidden fees for individual tasks.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What are the terms for the monthly DevOps contracts?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Our monthly DevOps tiers run on a flexible, month-to-month agreement. You get continuous
+            cloud monitoring, security hardening, and pipeline management without being locked into a rigid long-term
+            commitment. You can scale your tier up, down, or pause services with a 30-day notice.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are API costs included in the Automation and AI packages?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">No. To keep our development rates fair and transparent, any external subscription or
+            consumption costs (such as OpenAI API tokens, Zapier premium plans, or AWS cloud hosting) are billed
+            directly to your own accounts. We help you set everything up securely under your own ownership.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I combine a website build with a monthly automation plan?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Absolutely! Many clients start with a Custom-Coded or WordPress website build and attach
+            a 'Basic Workflows' or 'Custom AI Integration' plan to instantly route incoming leads into their CRMs, email
+            tools, or Slack teams.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens if a project requires more time than originally estimated?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">If a custom build runs into unforeseen technical hurdles or third-party API limitations
+            on our end, we cover the extra development hours at no additional cost to you. However, if the timeline
+            extends because of delayed content handoffs, shifting requirements, or feature creep from your side, we will
+            pause and re-scope the project budget accordingly.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do we track project milestones and communication?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We prioritize complete transparency. Depending on your preference, we set up a dedicated
+            workspace in Notion, Trello, or Jira where you can track tasks in real-time. Direct communication is handled
+            cleanly via Slack, Discord, or scheduled weekly email updates so you always know exactly what phase your
+            project is in.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you handle data compliance and security (like GDPR/CCPA)?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Yes. Our Premium and Enterprise tiers across Full-Coding, Automation, and DevOps
+            explicitly include security engineering. This covers setting up compliant cookie consents, implementing
+            secure data tokenization so user data is never leaked, and configuring server firewalls to meet modern web
+            privacy standards.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the final project sign-off and deployment handoff work?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Once development is complete, we host the project in a private staging environment for
+            your final review and testing. Once you give the official sign-off, we execute the live production
+            deployment (DNS routing, server provisioning, database connection). Following deployment, you receive
+            comprehensive walkthrough video documentation and full ownership transfer.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens if a third-party platform (like Zapier, Shopify, or OpenAI) changes its API or goes
+              down?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">While we build on top of industry-standard infrastructure, we do not control third-party
+            networks. If an external platform updates its security API, changes its pricing structure, or experiences a
+            global outage, any necessary code updates or workflow reconfiguration required to fix your system will be
+            scoped and billed as a separate maintenance task.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you write clean, commented code that another developer can easily take over?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Absolutely. All custom-coded projects and automated scripts follow modern industry
+            standards, clean architectural patterns, and semantic naming conventions. Everything is thoroughly commented
+            and documented, meaning any standard software engineer can easily pick up where we left off without having
+            to rewrite your platform from scratch.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can you work with our existing hosting provider, or do we have to switch?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We can deploy directly to your existing infrastructure (such as your current AWS, Google
+            Cloud, DigitalOcean, or Hostinger accounts), provided it meets the minimal technical dependencies required
+            for your project. If your current server setup is insecure or outdated, we will recommend a migration path
+            during our strategy phase.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do you protect our proprietary data and internal corporate passwords during development?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Security is non-negotiable. We never hardcode passwords or sensitive API credentials
+            directly into your codebase. Instead, we utilize encrypted environment variable managers and secure vault
+            configurations. Additionally, we are completely open to signing a Non-Disclosure Agreement (NDA) before you
+            share any internal operations or databases with us.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you provide graphic design, or do I need to bring my own mockups?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">For our Full-Coding and WordPress tiers, our development packages include professional
+            UI/UX layout engineering based on high-converting web frameworks. However, if your brand requires custom
+            digital illustrations, branding logo creation, or ultra-bespoke 3D assets, you will need to provide those or
+            hire a dedicated graphic designer to supply them before development begins.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is your policy on 'feature creep' during an active project build?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Feature creep refers to adding new ideas, pages, or automations that weren't in our
+            initial signed agreement. To stay on track and hit our deadlines, any new feature requested mid-project will
+            be put into a 'Phase 2 backlog.' We will finish the initial agreed-upon build first, then quote the Phase 2
+            additions separately.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you handle SEO (Search Engine Optimization) writing and content creation?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We handle the technical SEO framework—this means configuring rapid page load speeds,
+            clean indexing code structures, automatic sitemaps, and standard meta-tag architectures so Googlebot can
+            read your site perfectly. However, writing the actual blog posts, sales copy, and marketing text is your
+            responsibility, though we can recommend professional copywriters if needed.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can you build a project using a specific language or framework not listed on your stack?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Our core frameworks are selected because they deliver the absolute highest speed,
+            security, and scalability for our clients. If your enterprise system strictly mandates an outside technology
+            stack, we can discuss it during a custom strategy consultation to see if it aligns with our engineering
+            capabilities.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How much input or time will you need from me during the development process?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">We respect your time and keep our process highly streamlined. We require a deep-dive
+            onboarding kick-off at the beginning to gather asset files, data keys, and specifications. After that, we
+            handle the heavy lifting independently, only reaching out for milestone approvals or critical access
+            permissions during our scheduled weekly syncs.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What exactly counts as a 'micro-bug' under the On-Demand DevOps tier?</span>
+            <span class="faq-icon">▼</span>
+          </div>
+          <p class="faq-answer">Micro-bugs include quick infrastructure anomalies that can be resolved within a focused
+            window—such as a broken SSL certificate renewal, a mismatched environment variable connection string, a
+            basic domain routing error, or a simple server-side permission conflict. Large-scale database corruptions or
+            complete cluster crashes fall under custom architecture troubleshooting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FINAL CTA ======================== -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="final-cta-title">Ready to Transform Your Business?</h2>
+      <p class="final-cta-desc">
+        Let's discuss your project goals, requirements, and timeline. I'll provide a personalized quote and
+        implementation roadmap tailored to your success. No cookie-cutter solutions—just results that matter.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; margin-top: 28px;">
+        <a href="index.html#contact" class="btn btn-primary">Schedule Consultation</a>
+        <a href="casestudies.html" class="btn btn-outline">View Case Studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer
+    style="margin-top: 100px; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+    <p>&copy; 2026 Prince Uche. All rights reserved.</p>
+  </footer>
+
+  <!-- ======================== BOOKING MODAL STYLES ======================== -->
+  <style>
+    .booking-modal::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Inner modal box - distinct styling with proper containment */
+    .booking-modal {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      position: relative;
+      background: rgba(19, 28, 46, 0.98);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 420px;
+      width: 90%;
+      max-height: 75vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 80px rgba(99, 102, 241, 0.35);
+      backdrop-filter: blur(12px);
+      z-index: 10000;
+      flex-shrink: 0;
+    }
+
+    /* Modal overlay base state - hidden by default */
+    #bookingOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+    }
+
+    /* Modal overlay active state - visible */
+    #bookingOverlay.modal-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Phase transitions - fixed positioning to prevent overlap */
+    #phaseA, #phaseB {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease-in-out;
+      opacity: 1;
+    }
+
+    #phaseA.hidden, #phaseB.hidden {
+      display: none;
+      opacity: 0;
+    }
+
+    /* Close button fade in */
+    #closeBtn {
+      transition: opacity 0.35s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #closeBtn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Loading animation - 3 dots */
+    @keyframes dotPulse {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .loading-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background-color: white;
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: dotPulse 1.4s infinite;
+    }
+
+    .loading-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .loading-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loading-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  </style>
+
+  <!-- ======================== BOOKING MODAL ======================== -->
+  <div id="bookingOverlay">
+    <div class="booking-modal">
+      
+      <!-- Phase A: Input Form -->
+      <div id="phaseA" style="flex-direction: column; gap: 20px; position: relative; width: 100%;">
+        <div style="border-bottom: 2px solid rgba(34, 211, 238, 0.2); padding-bottom: 14px;">
+          <h2 style="color: var(--text-primary); font-size: 1.3rem; font-weight: 800; margin: 0; letter-spacing: -0.02em;">Contract Booking</h2>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 6px 0 0 0; font-weight: 500;">Enter your details</p>
+        </div>
+
+        <form id="bookingForm" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label for="fullName" style="color: var(--color-accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Name</label>
+            <input type="text" id="fullName" placeholder="Your Full Name" required style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(34, 211, 238, 0.3); border-radius: 8px; padding: 10px 12px; color: var(--text-primary); font-size: 0.9rem; transition: all 0.3s ease; font-family: inherit;" />
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label for="businessEmail" style="color: var(--color-accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Email</label>
+            <input type="email" id="businessEmail" placeholder="you@company.com" required style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(34, 211, 238, 0.3); border-radius: 8px; padding: 10px 12px; color: var(--text-primary); font-size: 0.9rem; transition: all 0.3s ease; font-family: inherit;" />
+          </div>
+
+          <button type="submit" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white; border: none; padding: 11px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9rem; margin-top: 6px; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;">Initialize</button>
+        </form>
+      </div>
+
+      <!-- Phase B: Certificate Display -->
+      <div id="phaseB" style="flex-direction: column; justify-content: space-between; gap: 16px; position: relative; width: 100%; height: 100%;" class="hidden">
+        <div style="flex-shrink: 0; border-bottom: 2px solid rgba(34, 211, 238, 0.2); padding-bottom: 12px;">
+          <h2 style="color: var(--text-primary); font-size: 1.3rem; font-weight: 800; margin: 0; letter-spacing: -0.02em; text-align: center;">Booking Confirmed</h2>
+        </div>
+
+        <div id="certificateText" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(34, 211, 238, 0.35); border-radius: 8px; padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #10ff60; line-height: 1.4; flex: 1; white-space: pre-wrap; word-break: break-word; letter-spacing: 0.02em; box-shadow: inset 0 0 20px rgba(34, 211, 238, 0.05); text-align: left; overflow-y: auto; margin: 0;"></div>
+
+        <button id="closeBtn" style="background: rgba(34, 211, 238, 0.15); border: 1.5px solid var(--color-accent); color: var(--color-accent); padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; align-self: center; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8rem; margin-top: 8px; flex-shrink: 0;">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // ===================== DYNAMIC CURRENCY CONVERSION =====================
+    const CurrencySymbols = {
+      'USD': '$', 'EUR': '€', 'GBP': '£', 'CAD': '$', 'JPY': '¥', 'INR': '₹', 'NGN': '₦', 'KES': 'Sh', 'ZAR': 'R',
+      'AUD': '$', 'NZD': '$', 'CHF': 'CHF', 'SEK': 'kr', 'NOK': 'kr', 'DKK': 'kr', 'BRL': 'R$', 'MXN': '$',
+      'SGD': '$', 'HKD': '$', 'CNY': '¥', 'KRW': '₩', 'THB': '฿', 'IDR': 'Rp', 'PHP': '₱', 'VND': '₫'
+    };
+
+    async function initiateCurrencyConversion() {
+      try {
+        // Fetch geolocation and currency
+        const geoResponse = await fetch('https://ipapi.co/json/');
+        const geoData = await geoResponse.json();
+        const userCurrency = geoData.currency || 'USD';
+
+        // Fetch exchange rates
+        const ratesResponse = await fetch('https://open.er-api.com/v6/latest/USD');
+        const ratesData = await ratesResponse.json();
+        const exchangeRate = ratesData.rates[userCurrency] || 1;
+
+        console.log(`Converting prices to ${userCurrency} (rate: ${exchangeRate})`);
+
+        // Update all tier prices
+        document.querySelectorAll('.tier-amount[data-base-price]').forEach(element => {
+          const basePriceUSD = parseFloat(element.getAttribute('data-base-price'));
+          const convertedPrice = basePriceUSD * exchangeRate;
+          const formatted = new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+          }).format(convertedPrice);
+          element.textContent = formatted;
+        });
+
+        // Update currency symbols
+        const currencySymbol = CurrencySymbols[userCurrency] || userCurrency;
+        document.querySelectorAll('.tier-currency').forEach(element => {
+          if (element.textContent === '$' || element.textContent === '') {
+            element.textContent = currencySymbol;
+          }
+        });
+
+      } catch (error) {
+        console.warn('Currency conversion unavailable (possibly blocked by ad-blocker or CORS)', error);
+        // Fallback to USD - no action needed as prices already display in USD
+      }
+    }
+
+    // Initialize currency conversion when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initiateCurrencyConversion);
+    } else {
+      initiateCurrencyConversion();
+    }
+
+    // ================================================================
+    // ISOLATED BOOKING WORKFLOW — Completely isolated from external scripts
+    // ================================================================
+    document.addEventListener('DOMContentLoaded', function() {
+      // Local scope: All variables and functions are isolated within this closure
+      let currentService = '';
+      let currentPlan = '';
+
+      // Get DOM elements (local references only)
+      const overlay = document.getElementById('bookingOverlay');
+      const phaseA = document.getElementById('phaseA');
+      const phaseB = document.getElementById('phaseB');
+      const bookingForm = document.getElementById('bookingForm');
+      const certificateText = document.getElementById('certificateText');
+      const closeBtn = document.getElementById('closeBtn');
+
+      // Defensive check: Only initialize booking if modal elements exist
+      if (!overlay || !bookingForm) {
+        console.warn('Booking modal elements not found on this page.');
+        return; // Exit silently, do not crash
+      }
+
+      // Event delegation: Listen to document body for booking button clicks
+      document.body.addEventListener('click', function(event) {
+        const button = event.target.closest('.booking');
+        if (!button) return; // Not a booking button, exit early
+
+        event.preventDefault();
+        currentService = button.getAttribute('service');
+        currentPlan = button.getAttribute('plan');
+        
+        // Clear form inputs
+        const fullNameInput = document.getElementById('fullName');
+        const businessEmailInput = document.getElementById('businessEmail');
+        if (fullNameInput) fullNameInput.value = '';
+        if (businessEmailInput) businessEmailInput.value = '';
+        
+        // Reset to Phase A
+        if (phaseA) phaseA.classList.remove('hidden');
+        if (phaseB) phaseB.classList.add('hidden');
+        if (closeBtn) closeBtn.classList.remove('visible');
+        if (certificateText) certificateText.innerHTML = '';
+        
+        // Show overlay with fade in
+        if (overlay) {
+          overlay.classList.add('modal-open');
+        }
+      });
+
+      // Handle form submission
+      bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fullName = document.getElementById('fullName').value.trim();
+        const businessEmail = document.getElementById('businessEmail').value.trim();
+        const submitBtn = bookingForm.querySelector('button[type="submit"]');
+        
+        if (!fullName || !businessEmail) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        // Show loading animation on button
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Loading<span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>';
+
+        // Send AJAX request to FormSubmit.co
+        fetch('https://formsubmit.co/ajax/akansoprince@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName: fullName,
+            businessEmail: businessEmail,
+            service: currentService,
+            plan: currentPlan,
+          }),
+        })
+        .then(response => {
+          if (response.ok) {
+            // Swap phases - Phase A completely removed from layout, Phase B takes full space
+            if (phaseA) phaseA.classList.add('hidden');
+            if (phaseB) phaseB.classList.remove('hidden');
+            
+            // Start typewriter animation
+            startTypewriter(fullName, businessEmail, currentService, currentPlan);
+          } else {
+            alert('Submission failed. Please try again.');
+            // Reset button on error
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Initialize';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+          // Reset button on error
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Initialize';
+        });
+      });
+
+      // Typewriter animation function
+      function startTypewriter(name, email, service, plan) {
+        const detailLines = [
+          `> Full Name: ${name}`,
+          `> Email Address: ${email}`,
+          `> Service: ${service}`,
+          `> Plan: ${plan}`,
+          '',
+          `✓ Booking confirmed for ${name}`,
+          `✓ Contract terms initiated`,
+          `✓ Notification sent to Our Team`,
+          '',
+          `Thank you for choosing us. Our team will`,
+          `review your requirements and contact you`,
+          `via email shortly to finalize details.`
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        let displayText = '';
+        const charDelay = 20;
+
+        function typeNextCharacter() {
+          if (lineIndex < detailLines.length) {
+            if (charIndex < detailLines[lineIndex].length) {
+              displayText += detailLines[lineIndex][charIndex];
+              if (certificateText) certificateText.textContent = displayText;
+              charIndex++;
+              setTimeout(typeNextCharacter, charDelay);
+            } else {
+              // Move to next line
+              displayText += '\n';
+              lineIndex++;
+              charIndex = 0;
+              setTimeout(typeNextCharacter, 80);
+            }
+          } else {
+            // Animation complete, show close button with fade in
+            if (closeBtn) {
+              closeBtn.classList.add('visible');
+            }
+          }
+        }
+
+        typeNextCharacter();
+      }
+
+      // Close modal handler - fade out by removing active state
+      const closeModal = () => {
+        if (overlay) {
+          overlay.classList.remove('modal-open');
+        }
+      };
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeModal();
+          }
+        });
+      }
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('modal-open')) {
+          closeModal();
+        }
+      });
+    }); // End of DOMContentLoaded wrapper
+  </script>
+</body>
+
+</html>
