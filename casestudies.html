@@ -224,9 +224,9 @@
       <div class="nav-links" id="navLinks">
         <a href="index.html" class="nav-link">Home</a>
         <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#skills" class="nav-link">Skills</a>
-        <a href="index.html#projects" class="nav-link">Stack</a>
-        <a href="pricing&service.html" class="nav-link">Pricing&Service</a>
+        <a href="index.html#skills" class="nav-link">Stack</a>
+        <a href="index.html#projects" class="nav-link">Systems</a>
+        <a href="pricing&service.html" class="nav-link active">Pricing & Service</a>
         <a href="index.html#contact" class="btn btn-primary btn-sm">Hire Me</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -266,7 +266,7 @@
           <p class="case-study-excerpt">
             In software engineering, chasing the lowest possible quote is an expensive trap that organizations discover too late. When development costs are cut to the bone - stripped down by aggressive procurement or outsourced to the cheapest bidder - critical layers like enterprise-grade security, comprehensive data encryption, and robust feature architecture are the first things thrown out the window. Cheaply built systems inevitably crumble under minimal user traffic spikes, expose platforms to devastating security breaches, and accumulate technical debt that compounds exponentially. I've watched startups hire discount developers, only to spend 10x more hiring architects to completely rebuild broken foundations. The false economy of cheap software is a trap: you're not saving money, you're deferring massive costs. Investing in quality over raw quantity ensures structural scalability, reliable uptime, and systemic safety from day one - preventing the catastrophic future cost of hiring an expert to rescue an imploding architecture. Paying more upfront for competent engineers is the only path to sustainable systems.
           </p>
-          <div class="case-study-author">By Prince Praise</div>
+          <div class="case-study-author">By Prince Uche</div>
         </div>
       </div>
 
@@ -286,7 +286,7 @@
           <p class="case-study-excerpt">
             One of the most pervasive mistakes in modern software engineering is the temptation to pack excessive features into the initial release. Developers and product managers often believe that launching with a comprehensive feature set demonstrates ambition and provides immediate market value. However, this approach systematically undermines scalability, maintainability, and long-term system resilience. When too many features are bundled at the outset, the codebase becomes a tangled web of interdependencies, making it exponentially harder to identify and isolate bugs. For sustainable growth and reliable system engineering, the superior strategy is incremental development using disciplined version control methodologies. This approach ensures clear separation of concerns, atomic releases, and the ability to rollback problematic features without cascade failures. By building incrementally, architectural decisions remain reversible, technical debt is constrained, and your project follows a clean, stable growth roadmap rather than collapsing under premature complexity.
           </p>
-          <div class="case-study-author">By Prince Praise</div>
+          <div class="case-study-author">By Prince Uche</div>
         </div>
       </div>
 
@@ -306,7 +306,7 @@
           <p class="case-study-excerpt">
             True architectural resilience is tested at mass scale when a system hits over 1 million users. At this inflection point, high-level, garbage-collected frameworks introduce massive execution bottlenecks and inflate cloud hosting bills exponentially. Languages like Python, Node.js, and Java provide excellent productivity, but their runtime overheads become untenable under extreme throughput demands. To solve this, switching critical performance layers to Rust using the Axum framework and Tokio async runtime can cut operational traffic latency and system resource consumption by up to 60%. Rust's zero-cost abstractions, memory safety without garbage collection, and fearless concurrency model ensure predictable tail latencies even under peak load. Furthermore, database query execution bottlenecks are mitigated not by raw horizontal scaling, but by precise indexing structures that fix slow, unoptimized lookups. The combination of Rust's raw speed and strategic database indexing delivers compounding benefits: lower cloud costs, faster response times, and reduced infrastructure complexity.
           </p>
-          <div class="case-study-author">By Prince Praise</div>
+          <div class="case-study-author">By Prince Uche</div>
         </div>
       </div>
 
@@ -326,7 +326,7 @@
           <p class="case-study-excerpt">
             A critical mistake many developers make is throwing a caching layer blindly at live, high-frequency services like trading bots, algorithmic systems, and blockchain data layers. While caching mechanisms are highly effective for upfronting static data assets and speeding up point-in-time snapshots, they have severe functional limitations that are often overlooked. In hyper-dynamic ecosystems where data changes instantly and consistency requirements are strict, relying on stale cached layers introduces a hidden risk: data corruption across dependent logic paths. A trading algorithm reading a cached price from 500 milliseconds ago could trigger incorrect buy/sell decisions. A blockchain indexer serving cached state might cause users to believe they hold assets they don't. These are not edge cases - they are inevitable consequences of decoupling reads from authoritative sources. The uncomfortable truth is that core query optimization must always precede a cache wrapper. Optimizing the source query, adding strategic database indexes, and improving algorithm efficiency directly eliminate the need for caching in many scenarios. Caching should be a performance enhancement for genuinely read-heavy operations, not a band-aid for poor architectural decisions.
           </p>
-          <div class="case-study-author">By Prince Praise</div>
+          <div class="case-study-author">By Prince Uche</div>
         </div>
       </div>
 
@@ -406,7 +406,7 @@
           <p class="case-study-excerpt">
             While database indexing is the standard cure for slow read queries, a common pitfall at mass scale is over-indexing, which creates a massive write bottleneck. In high-frequency systems, every index forces the database engine to pause and recalculate data structures, heavily tanking write latency. A system accepting 100K writes per second with 15 indexes can degrade catastrophically - each insert becomes an O(n log n) operation across all indexes. To resolve this architectural failure point, systems must implement two core engineering strategies: utilizing high-throughput request pools and queues to buffer incoming writes safely without crashing the backend, and adopting a strict Read/Write segregation pattern. By keeping the primary write-database lean and unindexed, optimized purely for throughput and durability, and offloading heavy queries to separate, highly-indexed edge replica engines like Turso, engineers can achieve blistering speed across both operations simultaneously. This pattern decouples the write path from the read path, allowing independent scaling and optimization tuning. The write-leader remains performant, while read replicas carry all the indexes needed for analytical queries without impacting transactional throughput.
           </p>
-          <div class="case-study-author">By Prince Praise</div>
+          <div class="case-study-author">By Prince Uche</div>
         </div>
       </div>
 
