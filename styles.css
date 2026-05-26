@@ -814,7 +814,7 @@ section {
    ============================================================ */
 .projects { 
   background: var(--bg-primary);
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ---- Project filter tabs (mirrors skill-filters) ---- */
