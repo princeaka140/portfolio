@@ -848,7 +848,7 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ---- Project card ---- */
@@ -1847,8 +1847,17 @@ section {
   /* Projects */
   .projects-grid { grid-template-columns: 1fr 1fr; }
   
+  .project-card {
+    animation: none !important;
+  }
+  
   .project-img {
     height: 160px;
+  }
+  
+  .project-img img {
+    filter: none !important;
+    will-change: auto;
   }
   
   .project-card:hover {
@@ -1938,6 +1947,12 @@ section {
   .project-card {
     padding: 16px 12px;
     gap: 10px;
+    animation: none !important;
+  }
+  
+  .project-img img {
+    filter: none !important;
+    will-change: auto;
   }
   
   .project-header {
@@ -2019,13 +2034,19 @@ section {
   .section-header { margin-bottom: 40px; }
 
   /* Reduce project card hover effects on mobile */
+  .project-card {
+    animation: none !important;
+  }
+  
   .project-card:hover {
-    transform: translateY(-2px) scale(1);
+    transform: translateY(-2px) scale(1) !important;
     box-shadow: 0 8px 20px rgba(99,102,241,0.15), var(--shadow-md);
   }
   
   .project-card:hover .project-img img {
-    transform: scale(1.02);
+    transform: scale(1.02) !important;
+    filter: none !important;
+    animation: none !important;
   }
 }
 
