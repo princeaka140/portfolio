@@ -1809,6 +1809,14 @@ section {
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.75s ease, transform 0.75s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* Mobile: disable reveal animation on smaller viewports due to IntersectionObserver threshold limitations */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
 /* ============================================================
    Responsive — Large tablets (≤ 1024px)
    ============================================================ */
