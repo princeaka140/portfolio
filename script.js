@@ -194,10 +194,11 @@ function drawBlockchainBlocks() {
   // Restore canvas state
   ctx.restore();
 
-  requestAnimationFrame(drawBlockchainBlocks);
+  // requestAnimationFrame(drawBlockchainBlocks);
 }
 
-drawBlockchainBlocks();
+// Canvas animation disabled - using glassmorphism theme instead
+// drawBlockchainBlocks();
 
 /* ---------- SVG Ring constants ---------- */
 const RING_RADIUS = 50;
