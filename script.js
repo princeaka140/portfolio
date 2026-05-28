@@ -449,6 +449,61 @@ if (contactForm !== null) {
 /* ================================================================
    TYPING EFFECT — Terminal Text Animation (On Scroll)
    ================================================================ */
+function initSpecialtyCycling() {
+  const specialtyElement = document.querySelector('.hero-subtitle .typed-text[data-specialties]');
+  
+  if (!specialtyElement) return;
+
+  const specialties = JSON.parse(specialtyElement.getAttribute('data-specialties'));
+  const cursor = specialtyElement.parentElement.querySelector('.typing-cursor');
+  let currentSpecialtyIndex = 0;
+  let isDeleting = false;
+  let currentText = '';
+  let charIndex = 0;
+
+  const typingSpeed = 100;      // Speed of typing
+  const deletingSpeed = 50;     // Speed of deleting
+  const pauseAtEnd = 2000;      // Pause before switching
+
+  function animateSpecialty() {
+    const fullText = specialties[currentSpecialtyIndex];
+
+    if (!isDeleting) {
+      // Typing mode
+      if (charIndex < fullText.length) {
+        currentText += fullText.charAt(charIndex);
+        specialtyElement.textContent = currentText;
+        charIndex++;
+        setTimeout(animateSpecialty, typingSpeed);
+      } else {
+        // Finished typing, wait then start deleting
+        setTimeout(() => {
+          isDeleting = true;
+          animateSpecialty();
+        }, pauseAtEnd);
+      }
+    } else {
+      // Deleting mode
+      if (charIndex > 0) {
+        currentText = fullText.substring(0, charIndex - 1);
+        specialtyElement.textContent = currentText;
+        charIndex--;
+        setTimeout(animateSpecialty, deletingSpeed);
+      } else {
+        // Finished deleting, move to next specialty
+        isDeleting = false;
+        currentSpecialtyIndex = (currentSpecialtyIndex + 1) % specialties.length;
+        charIndex = 0;
+        currentText = '';
+        setTimeout(animateSpecialty, 500);
+      }
+    }
+  }
+
+  // Start the animation immediately
+  animateSpecialty();
+}
+
 function initTypingEffect() {
   const glassTerminal = document.querySelector('.glass-terminal');
   const typedElements = document.querySelectorAll('.typed-text');
@@ -499,10 +554,14 @@ function initTypingEffect() {
   }
 }
 
-// Initialize typing effect
+// Initialize typing effects
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTypingEffect);
+  document.addEventListener('DOMContentLoaded', () => {
+    initSpecialtyCycling();
+    initTypingEffect();
+  });
 } else {
+  initSpecialtyCycling();
   initTypingEffect();
 }
 
