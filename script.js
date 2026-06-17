@@ -1,10 +1,4 @@
-/* ============================================================
-   Portfolio — script.js  |  Prince Uche
-   ============================================================ */
 
-/* ================================================================
-   BLOCKCHAIN CANVAS ANIMATION - Block Grid Pattern with Traffic
-   ================================================================ */
 const canvas = document.getElementById('blockchainCanvas');
 const ctx = canvas.getContext('2d');
 
