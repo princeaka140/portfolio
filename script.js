@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById('blockchainCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -500,8 +499,22 @@ function initSpecialtyCycling() {
 
 function initTypingEffect() {
   const glassTerminal = document.querySelector('.glass-terminal');
-  const typedElements = document.querySelectorAll('.typed-text');
+  const typedElements = document.querySelectorAll('.typed-text[data-text]');
   let hasStarted = false;
+
+  // Reserve the final space up front so typing never shifts the page:
+  // typed characters are visible, the rest is invisible but still takes space.
+  typedElements.forEach(el => {
+    const full = el.getAttribute('data-text') || '';
+    el.textContent = '';
+    const done = document.createElement('span');
+    const rest = document.createElement('span');
+    rest.style.visibility = 'hidden';
+    rest.textContent = full;
+    el.append(done, rest);
+    el._done = done;
+    el._rest = rest;
+  });
 
   // Create Intersection Observer to trigger typing when scrolled into view
   const typingObserver = new IntersectionObserver((entries) => {
@@ -526,8 +539,9 @@ function initTypingEffect() {
 
       function typeNextCharacter() {
         if (currentIndex < fullText.length) {
-          element.textContent += fullText.charAt(currentIndex);
           currentIndex++;
+          element._done.textContent = fullText.slice(0, currentIndex);
+          element._rest.textContent = fullText.slice(currentIndex);
           setTimeout(typeNextCharacter, typingSpeed);
         } else if (currentIndex === fullText.length && cursor) {
           // Completed typing this line, hide cursor
@@ -561,3 +575,29 @@ if (document.readyState === 'loading') {
 
 
 
+
+
+/* Light / dark theme toggle */
+(function(){
+  var root=document.documentElement,box=document.querySelector('.nav-links');
+  if(!box)return;
+  var b=document.createElement('button');b.type='button';b.className='theme-toggle';
+  box.appendChild(b);
+  function set(v){root.dataset.theme=v;b.textContent=v==='dark'?'\u2600':'\u263E';b.setAttribute('aria-label','Switch to '+(v==='dark'?'light':'dark')+' mode')}
+  set(root.dataset.theme||'light');
+  b.addEventListener('click',function(){var v=root.dataset.theme==='dark'?'light':'dark';set(v);try{localStorage.setItem('theme',v)}catch(e){}});
+})();
+
+
+/* Works roadmap: fill the line and light up milestones on scroll */
+(function(){
+  var road=document.querySelector('.articles');
+  if(!road)return;
+  var items=road.querySelectorAll('.work-item');
+  function update(){
+    var line=window.innerHeight*0.55,r=road.getBoundingClientRect();
+    road.style.setProperty('--p',Math.max(0,Math.min(r.height-40,line-r.top-20))+'px');
+    items.forEach(function(el){el.classList.toggle('reached',el.getBoundingClientRect().top+48<line)});
+  }
+  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();
+})();

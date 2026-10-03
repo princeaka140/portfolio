@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+<script>try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 
 <body>
@@ -41,8 +42,6 @@
         <a href="index.html#about" class="nav-link">About</a>
         <a href="index.html#skills" class="nav-link">Stack</a>
         <a href="index.html#projects" class="nav-link">Systems</a>
-        <a href="casestudies.html" class="nav-link">Blog & Insights</a>
-        <a href="pricing&service.html" class="nav-link">Pricing & Service</a>
         <a href="index.html#contact" class="btn btn-primary btn-sm">Hire Me</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -84,10 +83,6 @@
   <div class="articles">
     <!-- ===== WORK: JusticeAI ===== -->
     <article class="work-item" data-category="frontend">
-      <div class="work-image-frame">
-        <img class="frame-image" src="work_img/justiceai.webp" alt="FAQ AI model project showcase">
-
-      </div>
       <div class="work-content">
         <h3 class="work-title">FAQ AI model</h3>
 
@@ -155,10 +150,6 @@
 
     <!-- ===== WORK: OffDrop ===== -->
     <article class="work-item" data-category="fullstack">
-      <div class="work-image-frame">
-        <img class="frame-image" src="work_img/offdrop.webp" alt="OffDrop project showcase">
-
-      </div>
 
       <div class="work-content">
         <h3 class="work-title">OffDrop - Offline File Distribution Platform</h3>
@@ -216,6 +207,125 @@
         </div>
       </div>
     </article>
+
+    <!-- ===== WORK: Incan ===== -->
+    <article class="work-item" data-category="opensource">
+
+      <div class="work-content">
+        <h3 class="work-title">Incan - Pythonic Language That Compiles to Rust</h3>
+
+        <div class="work-specs">
+          <div class="spec-item">
+            <span class="spec-label">Description</span>
+            <p class="spec-value">Incan is a statically typed programming language for writing clear, high-level
+              application code that compiles to native Rust. It keeps Python-like readability while making types,
+              errors and mutability explicit. Built by Encero Systems and currently in active development (beta).</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Organisation</span>
+            <p class="spec-value">Encero Systems</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Technologies</span>
+            <div class="work-tags">
+              <span class="work-tag">Rust</span>
+              <span class="work-tag">Compiler</span>
+              <span class="work-tag">Programming Language</span>
+              <span class="work-tag">Open Source</span>
+            </div>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Key Features</span>
+            <ul class="features-list">
+              <li>Python-like, readable syntax</li>
+              <li>Compiles to native Rust binaries</li>
+              <li>Explicit error handling with Result and Option</li>
+              <li>Strong domain types with newtype and model</li>
+              <li>Rust interop for crates and performance work</li>
+              <li>Built-in tooling: formatter, test runner and LSP</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">CONTRIBUTION</span>
+          <p class="spec-value">Open-source contributor and community moderator. Fixed bugs and contributed ideas to
+            the project.</p>
+        </div>
+
+        <div class="work-footer">
+          <div class="work-actions">
+            <button type="button" class="work-link">
+              <a href="https://github.com/encero-systems/incan" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">💻</span>
+                <span class="link-text">Source Code</span>
+              </a>
+            </button>
+            <button type="button" class="work-link">
+              <a href="https://incan.io" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">↗</span>
+                <span class="link-text">Visit</span>
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+        <!-- ===== WORK: FieldNotes ===== -->
+    <article class="work-item" data-category="ai">
+      <div class="work-content">
+        <h3 class="work-title">FieldNotes - Fraud Investigation Agent</h3>
+
+        <div class="work-specs">
+          <div class="spec-item">
+            <span class="spec-label">Description</span>
+            <p class="spec-value">An AI agent that investigates a domain URL and gathers information about it. If the
+              website turns out to be fraudulent, it drafts a report.</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Technologies</span>
+            <div class="work-tags">
+              <span class="work-tag">Python</span>
+              <span class="work-tag">AI Agent</span>
+            </div>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Availability</span>
+            <p class="spec-value">Private tool. Not open source, used personally by me.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== WORK: Ashlar (in progress) ===== -->
+    <article class="work-item in-progress" data-category="blockchain">
+      <div class="work-content">
+        <span class="status-badge">In progress</span>
+        <h3 class="work-title">Ashlar - Blockchain System</h3>
+
+        <div class="work-specs">
+          <div class="spec-item">
+            <span class="spec-label">Description</span>
+            <p class="spec-value">Ashlar is a public settlement network designed for two-second block finality and
+              very low fees, with a typed SDK and a local devnet for developers.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+        <!-- ===== WORK: Nutrition & Dietetics App (in progress) ===== -->
+    <article class="work-item in-progress" data-category="mobile">
+      <div class="work-content">
+        <span class="status-badge">In progress</span>
+        <h3 class="work-title">Nutrition &amp; Dietetics App</h3>
+
+        <div class="work-specs">
+          <div class="spec-item">
+            <span class="spec-label">Description</span>
+            <p class="spec-value">A full nutrition and dietetics mobile app, built with React Native.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <div class="road-end"><span>More on the way</span></div>
   </div>
 
 

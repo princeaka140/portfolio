@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+<script>try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
   <!-- ======================== NAVBAR ======================== -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
-      <a href="pic/logo.webp" class="nav-logo" aria-label="Home">
+      <a href="index.html" class="nav-logo" aria-label="Home">
         <span class="logo-name"><img src="./pic/logo.webp"></span><span class="logo-bracket"></span>
       </a>
       <div class="nav-links" id="navLinks">
@@ -42,8 +43,6 @@
         <a href="#skills" class="nav-link">Stack</a>
         <a href="#projects" class="nav-link">Systems</a>
         <a href="works.html" class="nav-link">Works</a>
-        <a href="pricing&service.html" class="nav-link">Pricing & Services</a>
-        <a href="casestudies.html" class="nav-link">Blogs & Insights</a>
         <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -69,11 +68,11 @@
           <span class="text-accent">// </span><span class="typed-text" data-specialties='["Full-Stack Architect", "Backend Infrastructure", "AI Engineering & Agents", "DevOps & Automation Specialist"]'></span><span class="typing-cursor"></span>
         </p>
         <p class="hero-desc">
-          Building robust server-side architectures, automated DevOps deployment pipelines, and custom AI integrations engineered for reliability at scale.
+          Building robust server-side architectures, automated DevOps deployment pipelines, and custom AI integrations engineered for reliability at scale. I adapt quickly to any stack or workflow, so I can slot into your team and ship from day one.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Hire Me</a>
-          <a href="cv/Cv2.pdf" class="btn btn-outline">👁️ View My CV</a>
+          <a href="cv/Cv2.pdf" class="btn btn-outline">View My CV</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -93,31 +92,8 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="code-window">
-          <div class="code-header">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-            <span class="code-filename">server.py</span>
-          </div>
-          <pre class="code-body"><code><span class="ck">from</span> fastapi <span class="ck">import</span> FastAPI
-<span class="ck">from</span> databases <span class="ck">import</span> Database
-<span class="ck">from</span> redis <span class="ck">import</span> Redis
-
-app = <span class="cf">FastAPI</span>()
-db  = <span class="cf">Database</span>(<span class="cs">"postgresql://..."</span>)
-rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
-
-<span class="cd">@app.get</span>(<span class="cs">"/api/users"</span>)
-<span class="ck">async def</span> <span class="cf">get_users</span>():
-    cached = rds.<span class="cf">get</span>(<span class="cs">"users"</span>)
-    <span class="ck">if</span> cached:
-        <span class="ck">return</span> cached
-    <span class="ck">return await</span> db.<span class="cf">fetch_all</span>(
-        <span class="cs">"SELECT * FROM users"</span>
-    )</code></pre>
-        </div>
+      <div class="hero-photo">
+        <img src="pic/profile-pic.webp" alt="Prince Uche" width="420" height="525" />
       </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true"><span></span></div>
@@ -130,12 +106,6 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
         <h2 class="section-title" id="about-heading">About Me</h2>
       </div>
       <div class="about-grid">
-        <div class="about-avatar">
-          <div class="avatar-wrapper">
-            <img src="pic/profile-pic.webp" alt="Prince Uche profile photo" />
-            <div class="avatar-glow" aria-hidden="true"></div>
-          </div>
-        </div>
         <div class="glass-terminal">
           <div class="terminal-header">
             <div class="terminal-dots">
@@ -182,12 +152,20 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
                 <span class="typing-cursor"></span>
               </div>
 
+              <div class="typing-line">
+                <span class="prompt">→</span>
+                <span class="typed-text"
+                  data-text="Stack-agnostic by design: I pick up new languages, frameworks, and team workflows fast, and I focus on shipping reliable results with whatever tools the project needs."></span>
+                <span class="typing-cursor"></span>
+              </div>
+
               <div class="about-tags">
                 <span class="tag">Backend Systems</span>
                 <span class="tag">REST APIs</span>
                 <span class="tag">Database Design</span>
                 <span class="tag">Microservices</span>
                 <span class="tag">Cloud Architecture</span>
+                <span class="tag">Adaptable to Any Stack</span>
               </div>
               <a href="#contact" class="btn btn-primary" style="margin-top: 24px;">Get In Touch</a>
             </div>
@@ -202,13 +180,13 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
     <div class="container">
       <div class="section-header">
         <h2 class="section-title" id="skills-heading">Core Stack & Technologies</h2>
-        <p class="section-desc">A breakdown of our technical proficiency across all areas.</p>
+        <p class="section-desc">A breakdown of my technical proficiency across the stack.</p>
       </div>
 
       <div class="skills-toggle-wrapper">
         <button class="btn btn-toggle" id="skillsToggle" aria-expanded="false" aria-controls="skillsContainer">
           <span class="toggle-icon" aria-hidden="true">&#9660;</span>
-          Show Tools
+          Show Stack
         </button>
       </div>
 
@@ -537,6 +515,24 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
             </div>
           </div>
 
+          <div class="skill-card" data-category="framework" style="--i:11.5" aria-label="React Native, 80%">
+            <span class="skill-cat-badge badge-framework">Framework</span>
+            <div class="skill-ring-wrap">
+              <svg class="skill-ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-track" cx="60" cy="60" r="50" />
+                <circle class="ring-fill" cx="60" cy="60" r="50" data-percent="80" stroke="url(#skillGradient)" />
+              </svg>
+              <div class="skill-logo">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  alt="React Native" width="56" height="56" class="logo-react" loading="lazy" />
+              </div>
+            </div>
+            <div class="skill-card-info">
+              <span class="skill-card-name">React Native</span>
+              <span class="skill-card-pct">80%</span>
+            </div>
+          </div>
+
           <div class="skill-card" data-category="frontend" style="--i:12" aria-label="TailwindCSS, 60%">
             <span class="skill-cat-badge badge-frontend">Frontend</span>
             <div class="skill-ring-wrap">
@@ -712,6 +708,24 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
             </div>
           </div>
 
+          <div class="skill-card" data-category="tools" style="--i:21.5" aria-label="Kaggle, 75%">
+            <span class="skill-cat-badge badge-tools">Tools</span>
+            <div class="skill-ring-wrap">
+              <svg class="skill-ring-svg" viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-track" cx="60" cy="60" r="50" />
+                <circle class="ring-fill" cx="60" cy="60" r="50" data-percent="75" stroke="url(#skillGradient)" />
+              </svg>
+              <div class="skill-logo logo-dark-wrap">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/kaggle.svg"
+                  alt="Kaggle" width="56" height="56" class="logo-invert" loading="lazy" />
+              </div>
+            </div>
+            <div class="skill-card-info">
+              <span class="skill-card-name">Kaggle</span>
+              <span class="skill-card-pct">75%</span>
+            </div>
+          </div>
+
           <div class="skill-card" data-category="tools" style="--i:22" aria-label="WordPress, 88%">
             <span class="skill-cat-badge badge-tools">Tools</span>
             <div class="skill-ring-wrap">
@@ -738,144 +752,18 @@ rds = <span class="cf">Redis</span>(host=<span class="cs">"localhost"</span>)
   <section id="projects" class="projects reveal" aria-labelledby="projects-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title" id="projects-heading">Engineering to Scale</h2>
-        <p class="section-desc">Turning logic into high-performance, scalable systems</p>
+        <h2 class="section-title" id="projects-heading">Systems I Build</h2>
       </div>
-
-      <div class="projects-grid" id="projectsGrid">
-
-        <!-- ===== BACKEND ===== -->
-        <article class="project-card" data-category="backend">
-          <div class="project-img">
-            <img src="pic/api_gateway_proxy_layer.webp" alt="API Gateway" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge backend-proj">Backend</span>
-          <h3 class="project-title">High-Throughput API Gateway & Proxy Layer</h3>
-          <p class="project-desc">Lightning-fast requests that never timeout. Handles 10k+ concurrent users with <100ms latency. Zero downtime during traffic spikes. Your users stay happy, your costs drop 70%.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Async I/O</span>
-            <span class="tag tag-sm">Sub-ms Latency</span>
-            <span class="tag tag-sm">Connection Pooling</span>
-            <span class="tag tag-sm">Cache-Aside</span>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="backend">
-          <div class="project-img">
-            <img src="pic/stream_processing_pipeline.webp" alt="Stream Pipeline" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge backend-proj">Backend</span>
-          <h3 class="project-title">Distributed Ingestion & Stream Processing Pipeline</h3>
-          <p class="project-desc">Process 50k+ events per second without losing a single byte. Automatic failure recovery. Scales infinitely during traffic spikes. Your data pipeline stays rock-solid while competitors crash.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Non-blocking I/O</span>
-            <span class="tag tag-sm">Message Queues</span>
-            <span class="tag tag-sm">Backpressure</span>
-            <span class="tag tag-sm">Hot-path Cache</span>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="backend">
-          <div class="project-img">
-            <img src="pic/iam_security_core.webp" alt="IAM Security" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge backend-proj">Backend</span>
-          <h3 class="project-title">Distributed Identity & Access Management (IAM) Core</h3>
-          <p class="project-desc">Bank-grade security that's invisible to your users. Instant logins. Zero token hijacking. 100% audit trails for compliance. Sleep at night knowing your user data is bulletproof.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Multi-tenant</span>
-            <span class="tag tag-sm">RBAC</span>
-            <span class="tag tag-sm">Token Rotation</span>
-            <span class="tag tag-sm">Session Decoupling</span>
-          </div>
-        </article>
-
-        <!-- ===== FULLSTACK ===== -->
-        <article class="project-card" data-category="fullstack">
-          <div class="project-img">
-            <img src="pic/distributed_commerce_engine.webp" alt="Commerce Engine" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge fullstack-proj">Fullstack</span>
-          <h3 class="project-title">Distributed Commerce & Micro-Ledger Engine</h3>
-          <p class="project-desc">Checkout in under 2 seconds. Zero double-charges, zero overselling. 12% fewer cart abandonments. Turn browsers into buyers with blazing-fast transactions.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Microservices</span>
-            <span class="tag tag-sm">ACID Isolation</span>
-            <span class="tag tag-sm">Virtual DOM</span>
-            <span class="tag tag-sm">Message Decoupling</span>
-          </div>
-        </article>
-        <article class="project-card" data-category="backend">
-          <div class="project-img">
-            <img src="pic/async_automation_engine.webp" alt="Automation Engine" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge automation-proj">Automation</span>
-          <h3 class="project-title">Event-Driven Async Automation Engine</h3>
-          <p class="project-desc">Automate 1000s of tasks per second. 40+ hours saved per team monthly. Never miss an opportunity again. Audit-proof automation that scales infinitely.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Automation</span>
-            <span class="tag tag-sm">Event Sourcing</span>
-            <span class="tag tag-sm">Pub/Sub</span>
-            <span class="tag tag-sm">Tokio Runtime</span>
-          </div>
-        </article>
-
-        <!-- ===== FRONTEND ===== -->
-        <article class="project-card" data-category="frontend">
-          <div class="project-img">
-            <img src="pic/telemetry_virtualization_layer.webp" alt="Telemetry Dashboard" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge frontend-proj">Frontend</span>
-          <h3 class="project-title">Real-Time Telemetry & State Virtualization Layer</h3>
-          <p class="project-desc">Visualize 100k+ metrics without lag. Scroll at 60fps. Spot issues before customers do. Real-time insights that fit in your pocket.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">60fps Rendering</span>
-            <span class="tag tag-sm">WebSocket</span>
-            <span class="tag tag-sm">Memoization</span>
-            <span class="tag tag-sm">16ms Budget</span>
-          </div>
-        </article>
-
-        <article class="project-card" data-category="frontend">
-          <div class="project-img">
-            <img src="pic/ui_delivery_systems.webp" alt="UI Delivery" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge frontend-proj">Frontend</span>
-          <h3 class="project-title">High-Performance UI Delivery Systems</h3>
-          <p class="project-desc">Pages load in 2.5 seconds even on slow 3G. 40% faster. 12% higher conversions. Every millisecond counts—build pages that fly.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Critical CSS</span>
-            <span class="tag tag-sm">Lazy Loading</span>
-            <span class="tag tag-sm">HTTP/2 Multi</span>
-            <span class="tag tag-sm">40% Reduction</span>
-          </div>
-        </article>
-        <article class="project-card" data-category="frontend">
-          <div class="project-img">
-            <img src="pic/operations_control_center.webp" alt="Operations Center" width="800" height="450" loading="lazy" decoding="async">
-          </div>
-          <span class="project-category-badge frontend-proj">Frontend</span>
-          <h3 class="project-title">Enterprise Operations Control Center</h3>
-          <p class="project-desc">Control 50k+ users from one blazing-fast dashboard. Recover from ransomware in under an hour. GDPR-compliant audit trails. Your ops team works 10x faster.</p>
-          <div class="project-tags">
-            <span class="tag tag-sm">Event Propagation</span>
-            <span class="tag tag-sm">Table Virtualization</span>
-            <span class="tag tag-sm">Server-Sent Events</span>
-            <span class="tag tag-sm">10k+ Rows</span>
-          </div>
-        </article>
-
-
-      </div><!-- /#projectsGrid -->
-
-      <!-- Show My Works CTA -->
-      <div class="projects-cta" style="margin-top: 80px; text-align: center;">
-        <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 24px;">
-          Want to see more of my work in detail?
-        </p>
-        <a href="works.html" class="btn btn-primary btn-lg" style="padding: 14px 48px; font-size: 1rem;">Show My
-          Works</a>
-      </div>
+      <ul class="systems-list">
+          <li>API Gateway & Proxy Layer</li>
+          <li>Stream Processing Pipeline</li>
+          <li>Identity & Access Management</li>
+          <li>Commerce & Ledger Engine</li>
+          <li>Async Automation Engine</li>
+          <li>Real-Time Telemetry Layer</li>
+          <li>High-Performance UI Delivery</li>
+          <li>Operations Control Center</li>
+      </ul>
     </div>
   </section>
 
